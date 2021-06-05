@@ -1,0 +1,81 @@
+def decor(func):
+   def inner_function(x,y):
+       if x<0:
+           x = 0
+       if y<0:
+           y = 0
+       return func(x,y)
+   return inner_function
+def add(a,b):
+   res = a + b
+   return res
+add = decor(add)
+print(add(20,30))
+print(add(-10,5))
+
+"""Output
+50
+5"""def decor(func):
+   def inner_function(x,y):
+       if x<0:
+           x = 0
+       if y<0:
+           y = 0
+       return func(x,y)
+   return inner_function
+@decor
+def sub(a,b):
+   res = a - b
+   return res
+print(sub(30,20))
+print(sub(10,-5))
+
+"""Output
+10
+10"""def m():
+   yield 'Mahesh'
+   yield 'Suresh'
+g = m()
+print(g)
+print(type(g))
+for y in g:
+   print(y)
+
+"""Output
+<generator object m at 0x0000013516F3F548>
+<class 'generator'>
+Mahesh
+Suresh"""def m(x, y):
+   while x<=y:
+       yield x
+       x+=1
+g = m(5, 10)
+for y in g:
+   print(y)
+
+"""Output
+5
+6
+7
+8
+9
+10"""def m():
+   yield 'Mahesh'
+   yield 'Suresh'
+g = m()
+print(type(g))
+print(next(g))
+print(next(g))
+
+"""Output
+<class 'generator'>
+Mahesh
+Suresh"""def add(a,b):
+   res = a + b
+   return res
+print(add(20,30))
+print(add(-10,5))
+
+"""Output
+50
+-5"""
